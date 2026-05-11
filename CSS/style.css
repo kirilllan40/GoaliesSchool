@@ -1,0 +1,83 @@
+:root {
+    --primary-color: #ECC122;
+}
+
+body {
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===================== */
+
+.header {
+    width: 100%;
+    height: auto;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    width: 100px;
+}
+
+.header__list {
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.header__list-item {}
+
+.list__item-link {}
+
+/* ====================== */
+
+.about {
+    background: linear-gradient(rgb(21 21 21 / 80%), rgb(27 23 23 / 50%)), url(../img/backgrounds/goaliesback1.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    height: 700px;
+}
+
+.about__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.about__title {
+    color: white;
+    padding-top: 120px;
+    font-size: 65px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--primary-color);
+    font-family: "Open Sans", sans-serif;
+}
