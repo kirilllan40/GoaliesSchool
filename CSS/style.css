@@ -5,7 +5,6 @@
 body {
     background: black;
     width: 100%;
-    height: 100%;
 }
 
 .wrapper {
@@ -18,8 +17,15 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1150px;
     margin: 0 auto;
+    height: 100%;
+}
+
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column; /* растягивается на оставшееся место */
 }
 
 /* ===================== */
@@ -45,32 +51,98 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
     width: 100%;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
+    padding-right: 50px;
 }
 
 .header__list-item {}
 
-.list__item-link {}
+.list__item-link {
+    transition: transform 0.3s ease
+}
+
+.list__item-link:hover {
+    border-bottom: 5px solid var(--primary-color);
+    padding-bottom: 32px;
+    font-size: 22px;
+}
+
+
+
+.burger-icon {
+    display: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+}
+
+.burger-icon span,
+.burger-icon span::before,
+.burger-icon span::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    border-radius: 100px;
+    background: var(--primary-color);
+    transition: all .5s;
+}
+
+.burger-icon span {
+    position: relative;
+}
+
+.burger-icon span::before,
+.burger-icon span::after {
+    content: '';
+    position: absolute;
+}
+
+.burger-icon span::before {
+    top: -8px;
+}
+
+.burger-icon span::after {
+    bottom: -8px;
+}
+
+.body--opened-menu .burger-icon span {
+    background: transparent;
+}
+
+.body--opened-menu .burger-icon span::before {
+    top: 0px;
+    transform: rotate(45deg);
+}
+
+.body--opened-menu .burger-icon span::after {
+    bottom: 0px;
+    transform: rotate(-45deg);
+}
 
 /* ====================== */
 
 .about {
     background: linear-gradient(rgb(21 21 21 / 80%), rgb(27 23 23 / 50%)), url(../img/backgrounds/goaliesback1.jpg) no-repeat;
     background-size: cover;
-    height: 100%;
+    background-position: 50% 50%;
     width: 100%;
-    height: 700px;
+    min-height: 700px;
+    height: 100%;
 }
 
 .about__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex: 1 1 auto;
     height: 100%;
+    
 }
 
 .about__title {
@@ -80,4 +152,140 @@ body {
     color: transparent;
     -webkit-text-stroke: 2px var(--primary-color);
     font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.about__logo {
+    width: 270px;
+    margin-top: 200px;
+    
+}
+
+/* ===================== */
+
+.school {
+    width: 100%;
+    height: 100%;
+}
+.school__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    height: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    border: 1px solid rgba(255, 225, 29, 0.429);
+}
+.school__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.school__title-text {
+    color: white;
+    font-size: 50px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--primary-color);
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+.school__title-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: white;
+}
+.title__list-item {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+.school__img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+
+/* ============== */
+/* ============== */
+@media (max-width: 700px) {
+    .header__list {
+        gap: 35px;
+    }
+}
+
+
+@media (max-width: 650px) {
+        .body--opened-menu {
+        overflow: hidden;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: black;
+        padding: 10px 0;
+        z-index: 11;
+    }
+
+    .header__logo {
+        position: relative;
+        display: block;
+        width: 70px; /* чуть уменьшим на мобильных */
+        z-index: 11;
+    }
+
+    .header__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        background: black;
+        padding: 0 15px;
+        /* Убираем transform/opacity/visibility — они не нужны */
+    }
+
+    /* Список изначально скрыт справа */
+    .header__list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 60px;
+        margin: 0;
+        padding: 130px 20px 20px;
+        transform: translateX(100%);
+        transition: transform 0.4s ease;
+        z-index: 10;
+        font-size: 24px;
+    }
+
+    /* При открытом меню — выдвигаем список */
+    .body--opened-menu .header__list {
+        transform: translateX(0);
+    }
+
+    /* Бургер всегда видим */
+    .burger-icon {
+        display: flex;
+        position: relative;
+        z-index: 21;
+    }
+
+    .about__title {
+        font-size: 50px;
+    }
+
+    
 }
