@@ -25,7 +25,8 @@ body {
 .main {
     flex: 1 1 auto;
     display: flex;
-    flex-direction: column; /* растягивается на оставшееся место */
+    flex-direction: column;
+    /* растягивается на оставшееся место */
 }
 
 /* ===================== */
@@ -127,7 +128,7 @@ body {
 /* ====================== */
 
 .about {
-    background: linear-gradient(rgb(21 21 21 / 80%), rgb(27 23 23 / 50%)), url(../img/backgrounds/goaliesback1.jpg) no-repeat;
+    background: linear-gradient(rgba(21, 21, 21, 0.462), rgba(27, 23, 23, 0.235)), url(../img/backgrounds/gsaboutbackgraund.jpg) no-repeat;
     background-size: cover;
     background-position: 50% 50%;
     width: 100%;
@@ -142,13 +143,13 @@ body {
     align-items: center;
     flex: 1 1 auto;
     height: 100%;
-    
+
 }
 
 .about__title {
     color: white;
-    padding-top: 120px;
-    font-size: 65px;
+    padding-top: 20px;
+    font-size: 55px;
     color: transparent;
     -webkit-text-stroke: 2px var(--primary-color);
     font-family: "Open Sans", sans-serif;
@@ -156,17 +157,33 @@ body {
 }
 
 .about__logo {
-    width: 270px;
-    margin-top: 200px;
-    
+    width: 240px;
+    margin-top: 320px;
+
 }
 
 /* ===================== */
 
 .school {
+    position: relative;
     width: 100%;
     height: 100%;
 }
+
+.school__border-top {
+    position: absolute;
+    top: -87px;
+    right: 75px;
+    width: 350px;
+}
+
+.school__border-bot {
+    position: absolute;
+    bottom: -98px;
+    left: 75px;
+    width: 350px;
+}
+
 .school__wrapper {
     position: relative;
     display: flex;
@@ -179,6 +196,7 @@ body {
     padding-bottom: 70px;
     border: 1px solid rgba(255, 225, 29, 0.429);
 }
+
 .school__title {
     display: flex;
     flex-direction: column;
@@ -186,6 +204,7 @@ body {
     justify-content: center;
     gap: 40px;
 }
+
 .school__title-text {
     color: white;
     font-size: 50px;
@@ -194,16 +213,19 @@ body {
     font-family: "Open Sans", sans-serif;
     text-align: center;
 }
+
 .school__title-list {
     display: flex;
     flex-direction: column;
     gap: 40px;
     color: white;
 }
+
 .title__list-item {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
 }
+
 .school__img {
     width: 50%;
     border-radius: 10px;
@@ -220,24 +242,24 @@ body {
 
 
 @media (max-width: 650px) {
-        .body--opened-menu {
+    .body--opened-menu {
         overflow: hidden;
     }
 
     .header {
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
         background: black;
-        padding: 10px 0;
         z-index: 11;
     }
 
     .header__logo {
         position: relative;
         display: block;
-        width: 70px; /* чуть уменьшим на мобильных */
+        width: 70px;
+        /* чуть уменьшим на мобильных */
         z-index: 11;
     }
 
@@ -287,5 +309,5 @@ body {
         font-size: 50px;
     }
 
-    
+
 }
