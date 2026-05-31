@@ -33,3 +33,23 @@
         }
     });
 })();
+
+// -----------accordion----
+
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.title__list-item');
+    
+    items.forEach(item => {
+        const header = item.querySelector('.accordion__header');
+        header.addEventListener('click', () => {
+            // Закрываем все другие открытые пункты
+            items.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Переключаем текущий
+            item.classList.toggle('active');
+        });
+    });
+});
